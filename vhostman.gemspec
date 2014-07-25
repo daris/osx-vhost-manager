@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Vhostman::VERSION
   spec.authors       = ["Dariusz Miazga"]
   spec.email         = ["dariusz.miazga@devoth.pl"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{OSX vhost manager}
+  spec.summary       = %q{OSX vhost manager}
   spec.homepage      = ""
   spec.license       = "MIT"
 
