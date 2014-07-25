@@ -80,6 +80,15 @@ end
 
 def restart_apache
   puts "\tRestarting apache..."
+
+  mamp_start_script = '/Applications/MAMP/bin/start.sh'
+  mamp_stop_script = '/Applications/MAMP/bin/stop.sh'
+  if File.exists?(mamp_start_script)
+    exec(mamp_stop_script)
+    exec(mamp_start_script)
+    return
+  end
+
   if !`apachectl restart`
     puts "\tERROR: Error restarting apache."
   end
