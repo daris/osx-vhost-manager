@@ -75,9 +75,9 @@ def add_to_hosts
   puts "\tAdding #{@name} to #{HOSTS}..."
   line = "127.0.0.1 #{@domain}"
   # puts File.readlines(HOSTS)
-  puts File.readlines(HOSTS).each do |l|
+  File.readlines(HOSTS).each do |l|
     if l.include?(line)
-      puts "${line} already exists in ${HOSTS}"
+      puts "\t#{@domain} already exists in #{HOSTS}"
       return
     end
   end
@@ -90,11 +90,14 @@ end
 def restart_apache
   puts "\tRestarting apache..."
 
-  mamp_start_script = '/Applications/MAMP/bin/start.sh'
-  mamp_stop_script = '/Applications/MAMP/bin/stop.sh'
+  mamp_start_script = '/Applications/MAMP/bin/startApache.sh'
+  mamp_stop_script = '/Applications/MAMP/bin/stopApache.sh'
   if File.exists?(mamp_start_script)
-    exec(mamp_stop_script)
-    exec(mamp_start_script)
+    puts "\tStopping apache..."
+    system(mamp_stop_script)
+    sleep(1)
+    puts "\tStarting apache..."
+    system(mamp_start_script)
     return
   end
 
