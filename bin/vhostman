@@ -74,9 +74,12 @@ end
 def add_to_hosts
   puts "\tAdding #{@name} to #{HOSTS}..."
   line = "127.0.0.1 #{@domain}"
-  if File.readlines(HOSTS).grep(line).size > 0
-    puts "${line} already exists in ${HOSTS}"
-    return
+  # puts File.readlines(HOSTS)
+  puts File.readlines(HOSTS).each do |l|
+    if l.include?(line)
+      puts "${line} already exists in ${HOSTS}"
+      return
+    end
   end
 
   File.open(HOSTS, 'a') do |f|
