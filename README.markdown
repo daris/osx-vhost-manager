@@ -21,10 +21,14 @@ Add this line to your /etc/apache2/httpd.conf file:
 
 	Include /private/etc/apache2/extra/vhosts/*.conf
 
-Ensure it's executable:
+Create Gemfile in some dir
 
-	chmod 0777 /path/to/add-vhost.rb
+	gem 'vhostman', :git => 'https://github.com/daris/osx-vhost-manager.git', :branch => 'master'
 
-Link this into your /usr/local/bin like so:
+Run bundle install using rvmsudo
 
-	ln -s /path/to/vhostman.rb /usr/local/bin/vhostman
+	rvmsudo bundle install
+
+Vhostman command should be available
+
+	rvmsudo vhostman
