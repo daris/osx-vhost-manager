@@ -8,7 +8,7 @@ Given a name like "mysite" and a path to the files for the site, it will make th
 Usage
 =====
 
-	sudo vhostman add mysite ~/path/to/mysite/webroot
+	rvmsudo vhostman add mysite ~/path/to/mysite/webroot
 
 Installation
 ============
